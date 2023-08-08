@@ -17,3 +17,18 @@
   - Utilized Node.js and Express.js to architect the backend. Establishing connection to MongoDB database to store player data
   - Integrated web sockets to enable multiplayer functionality, elevating competitiveness by displaying real-time opponent scores for an engaging gaming experience
   - Utilized: React.js, Node.js, Express.js, MongoDB, Web Socket
+
+## Landing
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/7149b0d7-e418-4b32-8f67-90fef3343b56)
+
+## Single Player
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/aea34c16-16d9-4266-a4b3-212c6fda5b9f)
+
+## Single Player Uploading Score
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/22952904-ec63-49ac-8eb8-d964a7b4b7d4)
+
+## Multiplayer lobby
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/f60fb5df-7766-43a8-979f-9982a0980ebe)
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/09a0c8b6-1b1b-4597-8727-c0852e2d76cd)
+
+
