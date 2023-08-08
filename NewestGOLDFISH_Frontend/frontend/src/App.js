@@ -5,8 +5,8 @@ import Landing from './pages/Landing/Landing';
 import End from './pages/End/End';
 import About from './pages/About/About';
 import Multiplayer from './pages/Multiplayer/Multiplayer';
+import LeaderBoard from './pages/LeaderBoard/LeaderBoard';
 function App() {
-  console.log("This place happended")
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -14,6 +14,7 @@ function App() {
       <Route path="/end" element={<End />} />
       <Route path="/about" element={<About />} />
       <Route path="/multiplayer" element={<Multiplayer />} />
+      <Route path="/leaderBoard" element={<LeaderBoard />} />
     </Routes>
   );
 }

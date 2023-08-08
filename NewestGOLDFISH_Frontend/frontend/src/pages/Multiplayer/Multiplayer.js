@@ -4,7 +4,8 @@ import { io } from "socket.io-client";
 import { UNSAFE_getPathContributingMatches } from "@remix-run/router";
 import MultiplayerGameHost from "../../components/MultiplayerGameHost";
 import MultiplayerGameGuest from "../../components/MultiplayerGameGuest";
-const socket = io.connect("http://localhost:3003");
+import { BACKEND_HOST } from "../../API/api";
+const socket = io.connect(BACKEND_HOST);
 function Multiplayer() {
   const [name, setName] = useState("");
   const [submittedName, setSubmittedName] = useState(false);

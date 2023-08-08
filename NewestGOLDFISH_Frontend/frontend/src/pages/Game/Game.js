@@ -8,7 +8,7 @@ function Game() {
   const [answerGrids, setAnswerGrids] = useState([])
   const [scores, setScores] = useState(0)
   const [lives, setLives] = useState(LIVES)
-  const [level, setLevel] = useState({bigLevel: STARTING_NUMBER, subLevel: 1})    // max level = 8
+  const [level, setLevel] = useState({bigLevel: STARTING_NUMBER, subLevel: 1}) 
   const [moveToNextLevel, setMoveToNextLevel] = useState(false)
   const [disableGrid, setDisableGrid] = useState(false)
 
@@ -112,12 +112,6 @@ function Game() {
 
   return (
     <div>
-      {/* <input
-        type="number"
-        value={level}
-        onChange={handleInputChange}
-        min="3"
-      /> */}
       <div className='container'>
         {
           lives == 0 ?
