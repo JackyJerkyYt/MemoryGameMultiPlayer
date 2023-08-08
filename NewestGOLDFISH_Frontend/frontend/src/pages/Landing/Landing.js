@@ -19,6 +19,12 @@ function Landing() {
         window.location.href = `/multiplayer`
       }}>Multiplayer</button>
     </div>
+
+    <div className='container'>
+      <button onClick={() => {
+        window.location.href = `/leaderBoard`
+      }}>Leaderboard</button>
+    </div>
     </>
   )
 }
