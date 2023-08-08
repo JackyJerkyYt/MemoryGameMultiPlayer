@@ -35,16 +35,24 @@ function Multiplayer() {
     socket.emit("send-message", message, roomID);
   };
 
-  socket.on("receive-message", (data) => {
-    setReceivedMessage(data);
-    console.log("received message!!!!", createdHostRoomID);
-  });
+  useEffect(() => {
+    socket.on("receive-message", (data) => {
+      setReceivedMessage(data);
+      console.log("received message!!!!", createdHostRoomID);
+    });
+  
+    socket.on("connect", () => {
+      console.log("You connected with id:", socket.id);
+      setRoomID(socket.id);
+      setSocketID(socket.id)
+    });
 
-  socket.on("connect", () => {
-    console.log("You connected with id:", socket.id);
-    setRoomID(socket.id);
-    setSocketID(socket.id)
-  });
+    return () => {
+      socket.off("receive-message")
+      socket.off("connect")
+    }
+  }, [])
+ 
 
   if (itselfHostRoom) {
     socket.on("user_joined", (name) => {
