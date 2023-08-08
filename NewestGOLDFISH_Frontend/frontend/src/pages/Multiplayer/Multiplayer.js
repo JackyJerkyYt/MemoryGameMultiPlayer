@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Lobby.css";
+import "./Multiplayer.css";
 import { io } from "socket.io-client";
 import { UNSAFE_getPathContributingMatches } from "@remix-run/router";
 import MultiplayerGameHost from "../../components/MultiplayerGameHost";
 import MultiplayerGameGuest from "../../components/MultiplayerGameGuest";
 const socket = io.connect("http://localhost:3003");
-function Lobby() {
+function Multiplayer() {
   const [name, setName] = useState("");
   const [submittedName, setSubmittedName] = useState(false);
   const [roomID, setRoomID] = useState(null);
@@ -44,6 +44,7 @@ function Lobby() {
     setReceivedMessage(data);
     console.log("received message!!!!", createdHostRoomID);
   });
+  
 
   if (itselfHostRoom) {
     socket.on("user_joined", (name) => {
@@ -58,25 +59,6 @@ function Lobby() {
       setStartGame(true);
     });
   }
-
-  // useEffect(() => {
-
-  //   console.log("Why are these false????", itselfHostRoom, itselfJoinRoom)
-  //   socket.on("receive-message", (data) => {
-  //     setReceivedMessage(data);
-  //     console.log("received message!!!!", createdHostRoomID);
-  //   });
-
-  //   socket.on("user_joined", (name) => {
-  //     console.log("Someone Joined Your Room!!!!");
-  //     setFriend(name);
-  //   });
-
-  //   socket.on("host_started", (hostName) => {
-  //     setFriend(hostName);
-  //   });
-
-  // }, [socket]);
 
   const handleNameInput = (event) => {
     event.preventDefault();
@@ -251,4 +233,4 @@ function Lobby() {
   );
 }
 
-export default Lobby;
+export default Multiplayer;

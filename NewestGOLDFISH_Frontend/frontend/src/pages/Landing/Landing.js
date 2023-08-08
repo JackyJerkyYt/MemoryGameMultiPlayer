@@ -16,7 +16,7 @@ function Landing() {
 
     <div className='container'>
       <button onClick={() => {
-        window.location.href = `/lobby`
+        window.location.href = `/multiplayer`
       }}>Multiplayer</button>
     </div>
     </>
