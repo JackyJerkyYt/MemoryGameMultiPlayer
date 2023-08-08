@@ -28,7 +28,7 @@
 ![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/22952904-ec63-49ac-8eb8-d964a7b4b7d4)
 
 ## Multiplayer lobby
-![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/f60fb5df-7766-43a8-979f-9982a0980ebe)
+![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/a7192615-18d9-49e3-ac9d-be450a8c1424)
 ![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/09a0c8b6-1b1b-4597-8727-c0852e2d76cd)
 
 
