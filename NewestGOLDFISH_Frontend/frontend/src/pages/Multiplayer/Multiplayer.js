@@ -138,7 +138,7 @@ function Multiplayer() {
                       <></>
                     )}
                   </>
-                <div className="infoContainer">
+                {/* <div className="infoContainer">
                   <div className="info">Message: </div>
                   <input
                     onChange={handleSetMessage}
@@ -148,7 +148,7 @@ function Multiplayer() {
                   <button onClick={submitMessage}>Submit</button>
 
                   <div>{receiveMessage}</div>
-                </div>
+                </div> */}
               </>
             ) : (
               <>
