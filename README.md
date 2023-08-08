@@ -18,6 +18,7 @@
   - Integrated web sockets to enable multiplayer functionality, elevating competitiveness by displaying real-time opponent scores for an engaging gaming experience
   - Utilized: React.js, Node.js, Express.js, MongoDB, Web Socket
 
+## This version is not deployed yet. Yet you can feel free to pull the code to play on your localhost
 ## Landing
 ![image](https://github.com/JackyJerkyYt/MemoryGameMultiPlayer/assets/102132492/7149b0d7-e418-4b32-8f67-90fef3343b56)
 
