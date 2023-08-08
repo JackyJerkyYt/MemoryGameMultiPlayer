@@ -25,7 +25,7 @@ const server = app.listen(3003, () => {
 
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 io.on("connection", (socket) => {
-  console.log(socket.id);
+  console.log(socket.id, "connected to the server");
   socket.on("send-message", (message, room) => {
     if (room != "") {
       console.log("This is the room:", room, message);
@@ -34,12 +34,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("start_game", (hostName, room) => {
+    console.log("Host started the game")
     socket.to(room).emit('host_started', hostName);
   })
 
   socket.on("join_room", (room, name) => {
     console.log(name, "joined this room:", room);
-
     socket.join(room);
     socket.to(room).emit('user_joined', name);
   });
@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("finished", (room, message) => {
-    console.log("Host generated the answer grid")
+    console.log("One person has finished")
     socket.to(room).emit('receive_finished', message);
   });
 
@@ -66,6 +66,7 @@ io.on("connection", (socket) => {
   })
 
   socket.on("lost", (room, bool) => {
+    console.log("someone has lost")
     socket.to(room).emit('someone_lost', bool);
   })
 });

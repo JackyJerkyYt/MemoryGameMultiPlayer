@@ -1,0 +1,44 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size, 3), 1fr);
+  grid-template-rows: repeat(var(--grid-size, 3), 1fr);
+  gap: 1em;
+  margin-top: 2em;
+  padding: 1em 33em 0em 33em;
+}
+.grid-square {
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: rgb(55, 55, 165);
+  border: 1px solid gray;
+  cursor: pointer; /* Add this line to change cursor on hover */
+}
+
+.grid-square.clicked {
+  background-color: rgb(206, 10, 43);
+}
+
+.grid-square.correct {
+  background-color: green;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+button:hover {
+  background: #c23866;
+  color: #fff;
+}
