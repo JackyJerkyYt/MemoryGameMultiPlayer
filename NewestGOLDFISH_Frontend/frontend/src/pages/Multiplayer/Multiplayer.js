@@ -9,16 +9,15 @@ const socket = io.connect(BACKEND_HOST);
 function Multiplayer() {
   const [name, setName] = useState("");
   const [submittedName, setSubmittedName] = useState(false);
+  const [socketID, setSocketID] = useState("")
   const [roomID, setRoomID] = useState(null);
 
   ///////join room
   const [itselfJoinRoom, setItSelfJoinRoom] = useState(false);
   const [joinedOthersRoom, setJoinedOthersRoom] = useState(false);
-  const [hostAccepted, setHostAccepted] = useState(false);
 
   //host room
   const [itselfHostRoom, setItselfHostRoom] = useState(false);
-  const [hostRoomID, setHostRoomID] = useState(null);
   const [createdHostRoomID, setCreatedHostRoomID] = useState(false);
 
   const [message, setMessage] = useState("");
@@ -36,16 +35,16 @@ function Multiplayer() {
     socket.emit("send-message", message, roomID);
   };
 
-  socket.on("connect", () => {
-    console.log("You connected with id:", socket.id);
-    setRoomID(socket.id);
-  });
-
   socket.on("receive-message", (data) => {
     setReceivedMessage(data);
     console.log("received message!!!!", createdHostRoomID);
   });
-  
+
+  socket.on("connect", () => {
+    console.log("You connected with id:", socket.id);
+    setRoomID(socket.id);
+    setSocketID(socket.id)
+  });
 
   if (itselfHostRoom) {
     socket.on("user_joined", (name) => {
@@ -83,13 +82,10 @@ function Multiplayer() {
   };
 
   const handleCreateHostRoomIDButton = () => {
+    const room = `id_${socketID}`
     setCreatedHostRoomID(true);
-    socket.emit("join_room", hostRoomID, name);
-  };
-
-  const handleHostRoomID = (event) => {
-    setHostRoomID(event.target.value);
-    setRoomID(event.target.value);
+    socket.emit("join_room", room, name);
+    setRoomID(room);
   };
 
   const handleStartGame = () => {
@@ -112,11 +108,11 @@ function Multiplayer() {
           {itselfHostRoom || itselfJoinRoom ? (
             itselfHostRoom ? (
               <>
-                {createdHostRoomID ? (
+
                   <>
                     <div className="infoContainer">
                       <div className="info">
-                        Share Room ID To Your Friend: {hostRoomID}
+                        Share Room ID To Your Friend: {roomID}
                       </div>
                     </div>
                     {friend ? (
@@ -134,20 +130,6 @@ function Multiplayer() {
                       <></>
                     )}
                   </>
-                ) : (
-                  <div className="infoContainer">
-                    <div className="info">Create Room ID: </div>
-                    <input
-                      onChange={handleHostRoomID}
-                      type="text"
-                      maxLength={50}
-                    ></input>
-                    <button onClick={handleCreateHostRoomIDButton}>
-                      Create
-                    </button>
-                  </div>
-                )}
-
                 <div className="infoContainer">
                   <div className="info">Message: </div>
                   <input
@@ -211,6 +193,7 @@ function Multiplayer() {
                 <button
                   onClick={() => {
                     setItselfHostRoom(true);
+                    handleCreateHostRoomIDButton()
                   }}
                 >
                   Host Room
